@@ -1,3 +1,11 @@
 <?php
-echo 'Product was viewed ' . $this->getProductView() . ' times.<br/>';
+
+$day = 'days';
+
+$d = $this->getPeriod();
+
+if($this->getPeriod() == 1) {
+    $day = 'day';
+}
+echo 'Product was viewed ' . $this->getProductView() . ' times for ' . $this->getPeriod() . ' ' . $day;
 ?>

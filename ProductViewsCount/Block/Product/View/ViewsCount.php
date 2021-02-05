@@ -30,9 +30,14 @@ class ViewsCount extends \Magento\Framework\View\Element\Template
         parent::__construct($context, $data);
     }
 
+    public function getPeriod()
+    {
+        return $this->getPeriodCountViewProduct->getGeneralConfig('period');
+    }
+
     public function getProductView()
     {
-        $period = $this->getPeriodCountViewProduct->getGeneralConfig('period');
+        $period = $this->getPeriod();
 
         $productId = $this->request->getParam('id', null);
 
