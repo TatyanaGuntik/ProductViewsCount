@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="setPeriodCountView" translate="label" sortOrder="10">
+            <label>set Period Count View</label>
+        </tab>
+        <section id="periodCountView" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Period Count View</label>
+            <tab>setPeriodCountView</tab>
+
+            <resource>SetPeriodCountView_PeriodCountView::countview_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="period" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Period</label>
+                    <comment></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<body>
+<!--    <referenceContainer name="product.info.main">-->
+<!--        <block class="Mobecls\ProductViewsCount\Block\Product\View\ViewsCount"-->
+<!--               name="product.view.count"-->
+<!--               template="Mobecls_ProductViewsCount::productViewsCount.phtml"-->
+<!--               after="product.info.overview">-->
+<!--        </block>-->
+<!--    </referenceContainer>-->
+
+    <referenceContainer name="page.main.title">
+<!--        <block class="Mobecls\ProductViewsCount\Block\Product\View\ViewsCount" name="product.view.count1" template="Mobecls_ProductViewsCount::productViewsCount.phtml" after="product.info.overview" />-->
+<!--        <block class="Mobecls\ProductViewsCount\Block\Product\View\ViewsCount" name="product.view.count2" template="Mobecls_ProductViewsCount::productViewsCount.phtml" before="-" />-->
+        <block class="Mobecls\ProductViewsCount\Block\Product\View\ViewsCount" name="product.view.count3" template="Mobecls_ProductViewsCount::productViewsCount.phtml" />
+    </referenceContainer>
+</body>
