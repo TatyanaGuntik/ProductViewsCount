@@ -1,10 +1,12 @@
 <?php
+
 namespace Mobecls\ProductViewsCount\Block\Product\View;
 
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Framework\App\RequestInterface;
 use Magento\Reports\Model\ResourceModel\Product\CollectionFactory;
 use Mobecls\ProductViewsCount\Helper\GetPeriodCountViewProduct;
+use mysql_xdevapi\Exception;
 
 class ViewsCount extends \Magento\Framework\View\Element\Template
 {
@@ -22,7 +24,8 @@ class ViewsCount extends \Magento\Framework\View\Element\Template
         RequestInterface $request,
         GetPeriodCountViewProduct $getPeriodCountViewProduct,
         array $data = []
-    ) {
+    )
+    {
         $this->productsFactory = $productsFactory;
         $this->request = $request;
         $this->getPeriodCountViewProduct = $getPeriodCountViewProduct;
@@ -44,7 +47,7 @@ class ViewsCount extends \Magento\Framework\View\Element\Template
         $currentStoreId = $this->storeManager->getStore()->getId();
 
         $today = time();
-        $last = $today - (60*60*24*$period);
+        $last = $today - (60 * 60 * 24 * $period);
         $from = date("Y-m-d", $last);
         $to = date("Y-m-d", $today);
 
@@ -59,8 +62,12 @@ class ViewsCount extends \Magento\Framework\View\Element\Template
             );
         $items = $collection->getItems();
 
-        $viewCount = $items[$productId]->getData('views');
-
-        return $viewCount;
+        try {
+            $viewCount = $items[$productId];
+            $viewCount = $items[$productId]->getData('views');
+            return $viewCount;
+        } catch (\Exception $exception) {
+           return null;
+        }
     }
 }
